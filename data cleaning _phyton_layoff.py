@@ -18,27 +18,6 @@ import pandas as pd
 import matplotlib.pyplot as plt #untuk visualisasi data sesudah dan sebelum
 import seaborn as sns
 
-# Baca file CSV
-file_path = "steam-200k.csv"  # Pastikan file sudah ada di lokasi yang benar
-df = pd.read_csv(file_path)
-
-# Tampilkan beberapa baris pertama
-print(df.head())
-# Pertama yang harus di lakukan ada drop duplicate nya dulu / tidak di remove secara permanen
-df_cleaned=df.drop_duplicates()
-# lalu remove file chachenya
-df_cleaned.to_csv ("steam-200k.csv", index=False)
-print(df.duplicated().sum())
-
-# Visualisasi distribusi kolom 'Game'
-plt.figure(figsize=(12,6))
-sns.histplot(df_cleaned['Game'], bins=50, kde=False, color='green')
-plt.title('Distribusi Game')
-plt.show()
-
-#save file yang udah di bersihkan
-from google.colab import files
-files.download("steam-200k.csv")
 
 """DATA PHK PERUSAHAAN"""
 
